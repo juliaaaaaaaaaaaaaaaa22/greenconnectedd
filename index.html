@@ -1,0 +1,522 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GreenConeccted| Sistema Inteligente de Irrigação</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="app-container">
+        <!-- Barra de Navegação -->
+        <nav class="app-nav">
+            <div class="nav-header">
+                <div class="logo">
+                    <i class="fas fa-leaf"></i>
+                    <h1>GreenConnected/h1>
+                </div>
+                <div class="user-profile">
+                    <span>Olá, Jardineiro!</span>
+                    <div class="avatar">
+                        <i class="fas fa-user"></i>
+                    </div>
+                </div>
+            </div>
+            <ul class="nav-menu">
+                <li class="active"><a href="#dashboard"><i class="fas fa-tachometer-alt"></i> Painel</a></li>
+                <li><a href="#irrigation"><i class="fas fa-tint"></i> Irrigação</a></li>
+                <li><a href="#scheduling"><i class="fas fa-calendar-alt"></i> Programação</a></li>
+                <li><a href="#plants"><i class="fas fa-seedling"></i> Minhas Plantas</a></li>
+                <li><a href="#analytics"><i class="fas fa-chart-line"></i> Análises</a></li>
+                <li><a href="#settings"><i class="fas fa-cog"></i> Configurações</a></li>
+            </ul>
+            <div class="nav-footer">
+                <div class="system-status">
+                    <div class="status-indicator online"></div>
+                    <span>Sistema Online</span>
+                </div>
+                <button class="emergency-stop">
+                    <i class="fas fa-power-off"></i> Parar Irrigação
+                </button>
+            </div>
+        </nav>
+
+        <!-- Conteúdo Principal -->
+        <main class="app-content">
+            <!-- Painel de Controle -->
+            <section id="dashboard" class="content-section active">
+                <div class="section-header">
+                    <h2><i class="fas fa-tachometer-alt"></i> Painel de Controle</h2>
+                    <div class="last-update">
+                        <i class="fas fa-sync-alt"></i> Atualizado agora
+                    </div>
+                </div>
+
+                <div class="dashboard-grid">
+                    <!-- Status da Irrigação -->
+                    <div class="status-card irrigation-status">
+                        <div class="card-header">
+                            <h3>Status da Irrigação</h3>
+                            <div class="status-badge active">
+                                <i class="fas fa-check-circle"></i> Ativo
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <div class="irrigation-progress">
+                                <div class="progress-circle">
+                                    <svg class="progress-ring" width="120" height="120">
+                                        <circle class="progress-ring-circle" stroke="#4CAF50" stroke-width="8" fill="transparent" r="52" cx="60" cy="60"/>
+                                    </svg>
+                                    <div class="progress-text">78%</div>
+                                </div>
+                                <div class="progress-info">
+                                    <div class="info-item">
+                                        <span>Umidade atual</span>
+                                        <strong>42%</strong>
+                                    </div>
+                                    <div class="info-item">
+                                        <span>Meta de umidade</span>
+                                        <strong>65%</strong>
+                                    </div>
+                                    <div class="info-item">
+                                        <span>Próxima irrigação</span>
+                                        <strong>2h 15min</strong>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Sensores Ambientais -->
+                    <div class="status-card environmental-sensors">
+                        <div class="card-header">
+                            <h3>Sensores Ambientais</h3>
+                            <div class="sensor-actions">
+                                <button class="btn-icon"><i class="fas fa-sync-alt"></i></button>
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <div class="sensor-grid">
+                                <div class="sensor-item temperature">
+                                    <div class="sensor-icon">
+                                        <i class="fas fa-temperature-high"></i>
+                                    </div>
+                                    <div class="sensor-data">
+                                        <span>Temperatura</span>
+                                        <strong>24.5°C</strong>
+                                    </div>
+                                </div>
+                                <div class="sensor-item humidity">
+                                    <div class="sensor-icon">
+                                        <i class="fas fa-tint"></i>
+                                    </div>
+                                    <div class="sensor-data">
+                                        <span>Umidade do Ar</span>
+                                        <strong>58%</strong>
+                                    </div>
+                                </div>
+                                <div class="sensor-item light">
+                                    <div class="sensor-icon">
+                                        <i class="fas fa-sun"></i>
+                                    </div>
+                                    <div class="sensor-data">
+                                        <span>Luminosidade</span>
+                                        <strong>720 lux</strong>
+                                    </div>
+                                </div>
+                                <div class="sensor-item soil">
+                                    <div class="sensor-icon">
+                                        <i class="fas fa-seedling"></i>
+                                    </div>
+                                    <div class="sensor-data">
+                                        <span>Umidade do Solo</span>
+                                        <strong>42%</strong>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Controle Rápido -->
+                    <div class="status-card quick-control">
+                        <div class="card-header">
+                            <h3>Controle Rápido</h3>
+                        </div>
+                        <div class="card-body">
+                            <div class="control-buttons">
+                                <button class="control-btn irrigation-now">
+                                    <i class="fas fa-tint"></i>
+                                    <span>Irrigar Agora</span>
+                                </button>
+                                <button class="control-btn pause-system">
+                                    <i class="fas fa-pause"></i>
+                                    <span>Pausar Sistema</span>
+                                </button>
+                                <button class="control-btn add-plant">
+                                    <i class="fas fa-plus"></i>
+                                    <span>Adicionar Planta</span>
+                                </button>
+                                <button class="control-btn diagnostics">
+                                    <i class="fas fa-bug"></i>
+                                    <span>Diagnóstico</span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Programações Ativas -->
+                    <div class="status-card active-schedules">
+                        <div class="card-header">
+                            <h3>Programações Ativas</h3>
+                            <button class="btn-text">Ver Todas</button>
+                        </div>
+                        <div class="card-body">
+                            <div class="schedule-list">
+                                <div class="schedule-item">
+                                    <div class="schedule-time">
+                                        <span>06:00</span>
+                                        <small>Diariamente</small>
+                                    </div>
+                                    <div class="schedule-info">
+                                        <strong>Irrigação Matinal</strong>
+                                        <span>Zona 1 (Jardim Frontal)</span>
+                                    </div>
+                                    <div class="schedule-status active"></div>
+                                </div>
+                                <div class="schedule-item">
+                                    <div class="schedule-time">
+                                        <span>18:30</span>
+                                        <small>Diariamente</small>
+                                    </div>
+                                    <div class="schedule-info">
+                                        <strong>Irrigação Noturna</strong>
+                                        <span>Todas as zonas</span>
+                                    </div>
+                                    <div class="schedule-status active"></div>
+                                </div>
+                                <div class="schedule-item">
+                                    <div class="schedule-time">
+                                        <span>12:00</span>
+                                        <small>Somente em dias secos</small>
+                                    </div>
+                                    <div class="schedule-info">
+                                        <strong>Irrigação Extra</strong>
+                                        <span>Zona 2 (Horta)</span>
+                                    </div>
+                                    <div class="schedule-status inactive"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Consumo de Água -->
+                    <div class="status-card water-consumption">
+                        <div class="card-header">
+                            <h3>Consumo de Água</h3>
+                            <div class="time-filter">
+                                <select>
+                                    <option>Últimos 7 dias</option>
+                                    <option>Últimos 30 dias</option>
+                                    <option>Este mês</option>
+                                    <option>Personalizado</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <div class="consumption-chart">
+                                <canvas id="waterChart"></canvas>
+                            </div>
+                            <div class="consumption-stats">
+                                <div class="stat-item">
+                                    <span>Hoje</span>
+                                    <strong>12.5L</strong>
+                                </div>
+                                <div class="stat-item">
+                                    <span>Esta semana</span>
+                                    <strong>87.3L</strong>
+                                </div>
+                                <div class="stat-item">
+                                    <span>Este mês</span>
+                                    <strong>324.8L</strong>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Alertas e Notificações -->
+                    <div class="status-card alerts">
+                        <div class="card-header">
+                            <h3>Alertas</h3>
+                            <span class="badge">3</span>
+                        </div>
+                        <div class="card-body">
+                            <div class="alert-list">
+                                <div class="alert-item warning">
+                                    <div class="alert-icon">
+                                        <i class="fas fa-exclamation-triangle"></i>
+                                    </div>
+                                    <div class="alert-content">
+                                        <strong>Nível de água baixo</strong>
+                                        <p>O reservatório está com apenas 15% de capacidade</p>
+                                        <small>Há 2 horas</small>
+                                    </div>
+                                </div>
+                                <div class="alert-item info">
+                                    <div class="alert-icon">
+                                        <i class="fas fa-info-circle"></i>
+                                    </div>
+                                    <div class="alert-content">
+                                        <strong>Manutenção recomendada</strong>
+                                        <p>O filtro do sistema precisa ser limpo</p>
+                                        <small>Ontem</small>
+                                    </div>
+                                </div>
+                                <div class="alert-item success">
+                                    <div class="alert-icon">
+                                        <i class="fas fa-check-circle"></i>
+                                    </div>
+                                    <div class="alert-content">
+                                        <strong>Irrigação concluída</strong>
+                                        <p>Programação matinal executada com sucesso</p>
+                                        <small>Hoje, 06:15</small>
+                                    </div>
+                                </div>
+                            </div>
+                            <button class="btn-text">Ver Todos os Alertas</button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Seção de Irrigação (oculta por padrão) -->
+            <section id="irrigation" class="content-section">
+                <!-- Conteúdo da seção de irrigação -->
+            </section>
+
+            <!-- Outras seções... -->
+        </main>
+    </div>
+
+    <!-- Modal de Controle de Irrigação -->
+    <div class="modal" id="irrigationModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Controle de Irrigação</h3>
+                <button class="close-modal">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="irrigation-control">
+                    <div class="control-panel">
+                        <div class="zone-selector">
+                            <h4>Selecione a Zona:</h4>
+                            <div class="zone-buttons">
+                                <button class="zone-btn active">Zona 1</button>
+                                <button class="zone-btn">Zona 2</button>
+                                <button class="zone-btn">Zona 3</button>
+                                <button class="zone-btn">Zona 4</button>
+                                <button class="zone-btn">Todas</button>
+                            </div>
+                        </div>
+                        <div class="duration-control">
+                            <h4>Duração:</h4>
+                            <div class="duration-options">
+                                <button class="duration-btn">5 min</button>
+                                <button class="duration-btn active">10 min</button>
+                                <button class="duration-btn">15 min</button>
+                                <button class="duration-btn">20 min</button>
+                                <button class="duration-btn">30 min</button>
+                                <div class="custom-duration">
+                                    <input type="number" min="1" max="120" value="10">
+                                    <span>minutos</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="intensity-control">
+                            <h4>Intensidade:</h4>
+                            <div class="slider-container">
+                                <input type="range" min="1" max="100" value="75" class="intensity-slider">
+                                <div class="slider-labels">
+                                    <span>Suave</span>
+                                    <span class="current-value">75%</span>
+                                    <span>Forte</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="irrigation-preview">
+                        <div class="preview-header">
+                            <h4>Pré-visualização</h4>
+                            <div class="water-drop">
+                                <i class="fas fa-tint"></i>
+                            </div>
+                        </div>
+                        <div class="preview-stats">
+                            <div class="stat-item">
+                                <span>Água estimada:</span>
+                                <strong>7.5 litros</strong>
+                            </div>
+                            <div class="stat-item">
+                                <span>Cobertura:</span>
+                                <strong>85% da área</strong>
+                            </div>
+                            <div class="stat-item">
+                                <span>Tempo:</span>
+                                <strong>10 minutos</strong>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn cancel">Cancelar</button>
+                <button class="btn confirm">Iniciar Irrigação</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
+<!-- Perfil da Planta -->
+<div class="status-card plant-profile">
+    <div class="card-header">
+        <h3>Perfil da Planta</h3>
+        <button id="editPlantBtn" class="btn-icon"><i class="fas fa-edit"></i> Editar</button>
+    </div>
+    <div class="card-body">
+        <div class="plant-info">
+            <div class="plant-image">
+                <img id="plantImagePreview" src="https://images.unsplash.com/photo-1598880940080-ff9a29891b85?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" alt="Sua planta">
+            </div>
+            <div class="plant-details">
+                <h4 id="plantName">Tomate Cereja</h4>
+                <div class="plant-spec">
+                    <span>Tipo:</span>
+                    <strong id="plantType">Hortaliça</strong>
+                </div>
+                <div class="plant-spec">
+                    <span>Necessidade hídrica:</span>
+                    <strong id="plantWaterNeed">Média</strong>
+                </div>
+                <div class="plant-spec">
+                    <span>Umidade ideal:</span>
+                    <strong id="plantIdealHumidity">60-75%</strong>
+                </div>
+                <div class="plant-spec">
+                    <span>Recomendação diária:</span>
+                    <strong id="plantDailyWater">500-700ml</strong>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Modal de Seleção de Planta -->
+<div class="modal" id="plantModal">
+    <div class="modal-content">
+        <div class="modal-header">
+            <h3>Selecione ou Cadastre sua Planta</h3>
+            <button class="close-modal">&times;</button>
+        </div>
+        <div class="modal-body">
+            <div class="plant-selection">
+                <div class="search-box">
+                    <input type="text" id="plantSearch" placeholder="Pesquisar plantas...">
+                    <i class="fas fa-search"></i>
+                </div>
+                
+                <div class="plant-categories">
+                    <button class="category-btn active" data-category="all">Todas</button>
+                    <button class="category-btn" data-category="vegetable">Hortaliças</button>
+                    <button class="category-btn" data-category="fruit">Frutíferas</button>
+                    <button class="category-btn" data-category="herb">Ervas</button>
+                    <button class="category-btn" data-category="ornamental">Ornamentais</button>
+                </div>
+                
+                <div class="plant-grid" id="plantGrid">
+                    <!-- Plantas serão carregadas via JavaScript -->
+                </div>
+                
+                <div class="custom-plant">
+                    <h4>Ou cadastre uma planta personalizada</h4>
+                    <button id="addCustomPlantBtn" class="btn-text">
+                        <i class="fas fa-plus-circle"></i> Adicionar Planta Personalizada
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Modal de Planta Personalizada -->
+<div class="modal" id="customPlantModal">
+    <div class="modal-content">
+        <div class="modal-header">
+            <h3>Cadastrar Planta Personalizada</h3>
+            <button class="close-modal">&times;</button>
+        </div>
+        <div class="modal-body">
+            <form id="customPlantForm">
+                <div class="form-group">
+                    <label for="customPlantName">Nome da Planta</label>
+                    <input type="text" id="customPlantName" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="customPlantType">Tipo</label>
+                    <select id="customPlantType" required>
+                        <option value="">Selecione...</option>
+                        <option value="vegetable">Hortaliça</option>
+                        <option value="fruit">Frutífera</option>
+                        <option value="herb">Erva/Especiaria</option>
+                        <option value="ornamental">Ornamental</option>
+                        <option value="other">Outro</option>
+                    </select>
+                </div>
+                
+                <div class="form-group">
+                    <label for="customPlantWaterNeed">Necessidade Hídrica</label>
+                    <select id="customPlantWaterNeed" required>
+                        <option value="">Selecione...</option>
+                        <option value="low">Baixa (xerófita)</option>
+                        <option value="medium-low">Média-baixa</option>
+                        <option value="medium">Média</option>
+                        <option value="medium-high">Média-alta</option>
+                        <option value="high">Alta (higrófita)</option>
+                    </select>
+                </div>
+                
+                <div class="form-group">
+                    <label for="customPlantIdealHumidity">Umidade Ideal do Solo (%)</label>
+                    <div class="range-slider">
+                        <span id="humidityMinValue">40</span>
+                        <input type="range" id="customPlantHumidityMin" min="10" max="90" value="40">
+                        <span>a</span>
+                        <span id="humidityMaxValue">70</span>
+                        <input type="range" id="customPlantHumidityMax" min="20" max="95" value="70">
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label for="customPlantDailyWater">Água Recomendada por Dia</label>
+                    <div class="water-amount">
+                        <input type="number" id="customPlantDailyWater" min="50" max="5000" value="500" required>
+                        <span>ml</span>
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label for="customPlantPhoto">Foto da Planta (URL)</label>
+                    <input type="url" id="customPlantPhoto" placeholder="Cole a URL de uma imagem">
+                </div>
+            </form>
+        </div>
+        <div class="modal-footer">
+            <button class="btn cancel">Cancelar</button>
+            <button class="btn confirm" id="saveCustomPlantBtn">Salvar Planta</button>
+        </div>
+    </div>
+</div>
